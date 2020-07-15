@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.0/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"></script>
+    <script src="main.es6"></script>
+    <script src="services/apiService.es6"></script>
+  </head>
+
+<body ng-app="gitExplore" ng-controller="mainController as main">
+    <div class="search-header">
+      <input type="text=" ng-model="main.gitUser" />
+      <button ng-click="main.getUserRepos()">Search</button>
+    </div>
+
+    <div class="repositories">
+      <table ng-if="!main.contentList">
+        <tbody>
+          <tr ng-repeat="repo in main.repoList">
+            <td><div class="repo-row mouse-cursor" ng-bind="repo.name" ng-click="main.getRepoDetails(repo.name)"></div></td>
+          </tr>
+        </tbody>
+      </table>
+      <table ng-if="main.contentList">
+        <tbody>
+          <tr ng-repeat="item in main.contentList | orderBy:'type'">
+            <td>
+              <div class="repo-row" ng-click="main.getRepoDetails(repo.name, item.name)" ng-class="{'mouse-cursor': item.type === 'dir'}">
+                <i ng-if="item.type === 'dir'" class="fa fa-folder" style="padding-right:2px;"></i>
+                {{item.name}}
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</body>
+
+</html>

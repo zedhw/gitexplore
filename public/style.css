@@ -1,0 +1,18 @@
+body {
+  background: #d3d3d3;
+}
+
+.repositories {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.repo-row {
+  padding: 10px;
+  background: aliceblue;
+}
+
+.mouse-cursor {
+  cursor: pointer;
+}

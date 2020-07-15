@@ -1,0 +1,16 @@
+{
+  "name": "gitexplore",
+  "version": "1.0.0",
+  "description": "Zeguro coding",
+  "main": "app.js",
+  "author": "Eric",
+  "license:": "N/A",
+  "scripts": {
+    "start": "gulp start"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "gulp": "^4.0.2",
+    "gulp-live-server": "^0.0.31"
+  }
+}
